@@ -92,7 +92,7 @@ renderTree(buildSortedArray(data.services))
 function buildSortedArray(services) {
     services = services.sort(compareSorthead)
     
-    let result = []
+    const result = []
     
     services.forEach( (service) => {
         if (service.node === 1) {
@@ -122,10 +122,10 @@ function compareSorthead(a, b) {
 
 /* Отрисовка списка на странице */
 function renderTree(array) {
-    let main_list = document.createElement('ul')
+    const main_list = document.createElement('ul')
 
     array.forEach( (item) => {
-        let li = createItem(item)
+        const li = createItem(item)
 
         main_list.appendChild(li)
     })
@@ -133,8 +133,8 @@ function renderTree(array) {
     document.body.appendChild(main_list)
 }
 function createItem(obj) {
-    let li = document.createElement('li')
-    let title = document.createElement('span')
+    const li = document.createElement('li')
+    const title = document.createElement('span')
 
     if (obj.price > 0) {
         title.innerHTML = `${obj.name} (${obj.price})`
@@ -146,20 +146,20 @@ function createItem(obj) {
     li.appendChild(title)
 
     if (obj.children) {
-        let ul = createList(obj.children)
+        const ul = createList(obj.children)
         li.appendChild(ul)
 
-        let button = createExpandButton() 
+        const button = createExpandButton() 
         title.appendChild(button)
     }
 
     return li
 }
 function createList(array) {
-    let ul = document.createElement('ul')
+    const ul = document.createElement('ul')
 
     array.forEach( (item) => {
-        let li = createItem(item)
+        const li = createItem(item)
         ul.appendChild(li)
     })
 
